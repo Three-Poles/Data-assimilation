@@ -1,0 +1,56 @@
+SWAT-HDAS Version 1.0
+
+Direction:
+
+Step 1. CentOS with version 6 or higher
+
+Step 2. Install gfortran
+		yum install gfortran
+
+Step 3. Install BLAS (http://www.netlib.org/blas/)
+		yum install libblas-dev
+
+Step 4. Install LAPACK (http://www.netlib.org/lapack/)
+		yum install liblapack-dev
+
+Step 5. Install NetCDF4 (https://www.unidata.ucar.edu/software/netcdf/)
+		refer to https://www.unidata.ucar.edu/software/netcdf/docs/building_netcdf_fortran.html4
+
+Step 6. Complie the source code of SWAT-HDAS (running the following commond on the terminal)
+		Examples :
+
+		1. Regular test (EnKF+Lorenz)
+		gfortran -g -c -I/path-to-netcdf/include -I /path-to-netcdf/lib -lnetcdf -lnetcdff *.f 
+                                gfortran -g -I/path-to-netcdf/include -I /path-to-netcdf/lib -lnetcdf -lnetcdff *.o  -o swatpdaf
+
+		2. Parallel computing test (OpenMP)
+		gfortran -g -fopenmp -c -I/path-to-netcdf/include -I /path-to-netcdf/lib -lnetcdf -lnetcdff *.f 
+                                gfortran -g -fopenmp -I/path-to-netcdf/include -I /path-to-netcdf/lib -lnetcdf -lnetcdff *.o  -o swatpdaf
+
+Step 7. Running the executable file (running the following commond on the terminal)
+		Examples :
+		./swatpdaf
+
+
+Introducation of SWAT-HDAS Version 1.0
+
+Name: Soil and Water Assessment Tool-Hydrological Data Assimililation System
+
+Developer: Ying Zhang and Chunlin Huang
+
+Email: hexiayouxi@126.com (Ying Zhang), huangcl@lzb.ac.cn (Chunlin Huang).
+First available: May 2019
+
+Required hardware: Any computer with a multithread CPU that runs the Linux operating system. 
+
+Required software: Fortran
+
+Components libraries include LAPACK (http://www.netlib.org/lapack/) OpenMP (http://www.openmp.org).
+
+Cost: SWAT-HDAS is freely available and can be downloaded from https://pan.baidu.com/s/1TITIsOxfLV2Msh6DQG9_9Q&shfl=sharepset. code:cckj.
+
+References:
+Zhang, Y., Hou, J., Gu, J., Huang, C., & Li, X. ( 2017). SWAT©\based hydrological data assimilation system (SWAT©\HDAS): Description and case application to river basin©\scale hydrological predictions. Journal of Advances in Modeling Earth Systems, 9, 2863¨C 2882. https://doi.org/10.1002/2017MS001144
+Introducation:
+SWAT-HDAS is to achieve a fast, easy-to-use, and multidisciplinary application-oriented assimilation platform.SWAT-HDAS integrates many algorithms (including diverse Kalman filters). Using parallel computing technologies (OpenMP), SWAT-HDAS can assimilate various land surface variables and remote sensing observations. SWAT-HDAS can be applied in multidisciplinary data assimilation studies.
+
